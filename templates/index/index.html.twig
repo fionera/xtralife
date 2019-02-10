@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Xtralife{% endblock %}
+
+{% block body %}
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        {{ flashMessage }}
+    {% endfor %}
+
+    {% for flashMessage in app.session.flashbag.get('info') %}
+        {{ flashMessage }}
+    {% endfor %}
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+    <a href="{{ url('register') }}">Register</a>
+    <a href="{{ url('charge') }}">Charge</a>
+{% endblock %}
